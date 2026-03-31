@@ -1,18 +1,11 @@
 # 3AAudioAlgorithm
 
-<<<<<<< ours
-Python reference implementation for **3A audio processing**:
-=======
 Python reference implementation for **3A + DRC audio processing**:
->>>>>>> theirs
 
 - **AEC**: Acoustic Echo Cancellation (`NLMSAcousticEchoCanceller`)
 - **ANS**: Automatic Noise Suppression (`SpectralNoiseSuppressor`)
 - **AGC**: Automatic Gain Control (`RMSAutomaticGainControl`)
-<<<<<<< ours
-=======
 - **DRC**: Dynamic Range Compression (`DynamicRangeCompressor`)
->>>>>>> theirs
 
 > 目标：先做 Python 原型，后续可平滑迁移到 C++ 并部署到硬件。
 
@@ -32,12 +25,8 @@ Python reference implementation for **3A + DRC audio processing**:
 │       ├── aec.py            # AEC 算法
 │       ├── ans.py            # ANS 算法
 │       ├── agc.py            # AGC 算法
-<<<<<<< ours
-│       ├── pipeline.py       # 3A 主流水线
-=======
 │       ├── drc.py            # DRC 算法
 │       ├── pipeline.py       # 3A + DRC 主流水线
->>>>>>> theirs
 │       └── runner.py         # 文件级调用入口
 ├── examples/
 │   └── run_pipeline.py

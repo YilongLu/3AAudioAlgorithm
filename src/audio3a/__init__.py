@@ -6,6 +6,10 @@
 from .aec import NLMSAcousticEchoCanceller
 from .agc import RMSAutomaticGainControl
 from .ans import SpectralNoiseSuppressor
+<<<<<<< ours
+=======
+from .drc import DynamicRangeCompressor
+>>>>>>> theirs
 from .pipeline import ThreeAPipeline
 from .types import AudioFrame, AudioStreamConfig
 
@@ -15,5 +19,9 @@ __all__ = [
     "NLMSAcousticEchoCanceller",
     "SpectralNoiseSuppressor",
     "RMSAutomaticGainControl",
+<<<<<<< ours
+=======
+    "DynamicRangeCompressor",
+>>>>>>> theirs
     "ThreeAPipeline",
 ]

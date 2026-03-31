@@ -25,6 +25,10 @@ void ProcessFrame(const float* mic, const float* ref, float* out, int frame_size
 1. AEC（对双讲与回声稳定性影响最大）
 2. ANS（降低稳态噪声）
 3. AGC（保证响度一致）
+<<<<<<< ours
+=======
+4. DRC（控制峰值与动态范围）
+>>>>>>> theirs
 
 ## 4. 一致性验证
 

@@ -1,10 +1,18 @@
 # 3AAudioAlgorithm
 
+<<<<<<< ours
 Python reference implementation for **3A audio processing**:
+=======
+Python reference implementation for **3A + DRC audio processing**:
+>>>>>>> theirs
 
 - **AEC**: Acoustic Echo Cancellation (`NLMSAcousticEchoCanceller`)
 - **ANS**: Automatic Noise Suppression (`SpectralNoiseSuppressor`)
 - **AGC**: Automatic Gain Control (`RMSAutomaticGainControl`)
+<<<<<<< ours
+=======
+- **DRC**: Dynamic Range Compression (`DynamicRangeCompressor`)
+>>>>>>> theirs
 
 > 目标：先做 Python 原型，后续可平滑迁移到 C++ 并部署到硬件。
 
@@ -24,7 +32,12 @@ Python reference implementation for **3A audio processing**:
 │       ├── aec.py            # AEC 算法
 │       ├── ans.py            # ANS 算法
 │       ├── agc.py            # AGC 算法
+<<<<<<< ours
 │       ├── pipeline.py       # 3A 主流水线
+=======
+│       ├── drc.py            # DRC 算法
+│       ├── pipeline.py       # 3A + DRC 主流水线
+>>>>>>> theirs
 │       └── runner.py         # 文件级调用入口
 ├── examples/
 │   └── run_pipeline.py
@@ -54,6 +67,11 @@ out_frame = pipeline.process_frame(mic_frame, ref_frame)
 - `ref_frame`: 远端参考（扬声器回采）单通道 `float32`，可为 `None`
 - 返回：处理后的单通道 `float32`
 
+<<<<<<< ours
+=======
+内部处理顺序：`AEC -> ANS -> AGC -> DRC`。
+
+>>>>>>> theirs
 ### 3.2 文件级接口（离线验证）
 
 `audio3a.runner.process_wav_files(...)`
@@ -76,7 +94,11 @@ process_wav_files(
 - 保持 `process_frame(mic, ref)` 为唯一 DSP 入口（Python/C++ 同签名）
 - `AudioSource/AudioSink` 抽象替换为硬件 DMA/RingBuffer
 - 统一定点化策略：先在 Python 中固定增益与限幅范围，再在 C++ 定点实现
+<<<<<<< ours
 - 分模块迁移：AEC -> ANS -> AGC，逐个对齐测试向量
+=======
+- 分模块迁移：AEC -> ANS -> AGC -> DRC，逐个对齐测试向量
+>>>>>>> theirs
 
 详见 `docs/cplusplus_migration.md`。
 

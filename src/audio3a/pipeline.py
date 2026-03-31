@@ -5,16 +5,28 @@ from dataclasses import dataclass, field
 from .aec import NLMSAcousticEchoCanceller
 from .agc import RMSAutomaticGainControl
 from .ans import SpectralNoiseSuppressor
+<<<<<<< ours
+=======
+from .drc import DynamicRangeCompressor
+>>>>>>> theirs
 from .types import FloatArray
 
 
 @dataclass(slots=True)
 class ThreeAPipeline:
+<<<<<<< ours
     """3A pipeline: AEC -> ANS -> AGC."""
+=======
+    """3A+DRC pipeline: AEC -> ANS -> AGC -> DRC."""
+>>>>>>> theirs
 
     aec: NLMSAcousticEchoCanceller = field(default_factory=NLMSAcousticEchoCanceller)
     ans: SpectralNoiseSuppressor = field(default_factory=SpectralNoiseSuppressor)
     agc: RMSAutomaticGainControl = field(default_factory=RMSAutomaticGainControl)
+<<<<<<< ours
+=======
+    drc: DynamicRangeCompressor = field(default_factory=DynamicRangeCompressor)
+>>>>>>> theirs
 
     def process_frame(self, mic_frame: FloatArray, ref_frame: FloatArray | None = None) -> FloatArray:
         if ref_frame is None:
@@ -23,4 +35,9 @@ class ThreeAPipeline:
         aec_out = self.aec.process(mic_frame, ref_frame)
         ans_out = self.ans.process(aec_out)
         agc_out = self.agc.process(ans_out)
+<<<<<<< ours
         return agc_out
+=======
+        drc_out = self.drc.process(agc_out)
+        return drc_out
+>>>>>>> theirs

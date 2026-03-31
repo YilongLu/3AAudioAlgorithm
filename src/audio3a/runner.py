@@ -21,7 +21,7 @@ def process_wav_files(
       2) Keep frame-level `pipeline.process_frame` call unchanged.
     """
 
-    pipeline = pipeline or ThreeAPipeline()
+    pipeline = pipeline or ThreeAPipeline(stream_config=stream_config)
     mic_source = WavFileSource(mic_wav_path, stream_config)
     ref_source = WavFileSource(ref_wav_path, stream_config) if ref_wav_path else None
     sink = WavFileSink(out_wav_path, stream_config)

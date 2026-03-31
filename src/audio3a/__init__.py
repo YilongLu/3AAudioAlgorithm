@@ -7,6 +7,7 @@ from .aec import NLMSAcousticEchoCanceller
 from .agc import RMSAutomaticGainControl
 from .ans import SpectralNoiseSuppressor
 from .drc import DynamicRangeCompressor
+from .interfaces import MonoFrameProcessor, MonoReferenceProcessor, ResettableProcessor
 from .pipeline import ThreeAPipeline
 from .types import AudioFrame, AudioStreamConfig
 
@@ -17,5 +18,8 @@ __all__ = [
     "SpectralNoiseSuppressor",
     "RMSAutomaticGainControl",
     "DynamicRangeCompressor",
+    "MonoFrameProcessor",
+    "MonoReferenceProcessor",
+    "ResettableProcessor",
     "ThreeAPipeline",
 ]
